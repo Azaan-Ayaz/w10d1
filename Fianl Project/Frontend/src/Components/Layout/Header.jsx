@@ -1,25 +1,17 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { GiConsoleController } from "react-icons/gi";
-import { useAuth } from '../../context/auth';
+// import { useAuth } from '../../context/auth';
 import { toast } from 'react-toastify';
 
 
 const Header = () => {
-  const [auth, setAuth] = useAuth()
   const location = useLocation();
   const isCurrentPage = (path) => {
     return location.pathname === path;
   };
 
-  const handleLogOut = () => {
-    setAuth({
-      ...auth,
-      user: null
-    })
-      localStorage.removeItem("auth")
-      toast.success("Logout Successfully")
-    }
+  
 
   return (
     <>
@@ -47,7 +39,7 @@ const Header = () => {
                 CATEGORY
               </Link>
             </li>
-            {
+            {/* {
               !auth.user ? (<>
               <li className='align-middle'>
               <Link
@@ -75,7 +67,7 @@ const Header = () => {
               </Link>
             </li>      
               </>)
-            }
+            } */}
             <li className='align-middle'>
               <Link
                 to="/cart"
